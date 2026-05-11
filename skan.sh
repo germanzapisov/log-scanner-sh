@@ -13,13 +13,13 @@ done
 }
 
 function skanner_photo() {
-  find ~ -type f -name "$1"| while read photo
+  find ~ -type f \( -name "$1" -o -name "$2" -o -name "$3"\) | while read photo
   do
     cp "$photo" ~/Desktop/logs/photo
   done
 }
 skanner_debug "*.txt"
 
-skanner_photo "*.jpg"
+skanner_photo "*.jpg" "*.png" "*.jpeg"
 
 echo "successful"
